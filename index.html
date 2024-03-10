@@ -15,15 +15,15 @@
    <div class="container score py-5">
    <div class="row">
     <div class="col-6 boxscore">
-        <h2 class="teamA">TEAM A</h2>
+        <h2 class="teamA" id="teamA">TEAM A</h2>
         <div class="button-1">
-        <button class="change"></button>
+        <button class="change" onclick="changeName('A')">Takım ismi giriniz</button>
     </div>
     </div>
     <div class="col-6 boxscore2">
-      <h2 class="teamB"> TEAM B </h2> 
+      <h2 class="teamB" id="teamB"> TEAM B </h2> 
       <div class="button-2">
-      <button class="change"></button>
+      <button class="change" onclick="changeName('B')">Takım ismi giriniz</button>
     </div>
     </div>
    </div>
@@ -31,10 +31,10 @@
 
    <!-- TEAM NAME FİNİSHED-->
 
-   <div class="container py-5">
+   <div class="container team py-5">
     <div class="row">
         <div class="col-6 team">
-            <div  class="leftteam"> <p id="teamAScore">0</p></div>
+            <div  class="leftteam" id="teamAScore"> <p >0</p></div>
             <button class="plus-1"  onclick="incrementScore('teamA')"><span class="arti">+</span></button>
             <button class="minus-1"  onclick="decrementScore('teamA')"><span class="eksi">-</span></button>
             <button class="score-write" onclick="setScorePrompt('teamA')">Skor Ayarla</button>
