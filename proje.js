@@ -1,53 +1,33 @@
-let teamAScore = 0;
-let teamBScore = 0;
+function increaseGoal(team) {
+  let currentGoal = parseInt(document.getElementById('goal' + team).innerText);
+  document.getElementById('goal' + team).innerText = currentGoal + 1;
+}
 
-let teamAScoreValue = document.getElementById("teamAScore");
-let teamBScoreValue = document.getElementById("teamBScore");
-
-
-let incrementScore = (team) => {
-  if (team === "teamA") {
-    teamAScore++;
-    teamAScoreValue.textContent = teamAScore;
-  } else if (team === "teamB") {
-    teamBScore++;
-    teamBScoreValue.textContent = teamBScore;
+function decreaseGoal(team) {
+  let currentGoal = parseInt(document.getElementById('goal' + team).innerText);
+  if (currentGoal > 0) {
+      document.getElementById('goal' + team).innerText = currentGoal - 1;
   }
-};
+}
 
-
-let decrementScore = (team) => {
-  if (team === "teamA" && teamAScore > 0) {
-    teamAScore--;
-    teamAScoreValue.textContent = teamAScore;
-  } else if (team === "teamB" && teamBScore > 0) {
-    teamBScore--;
-    teamBScoreValue.textContent = teamBScore;
+function setGoal(team) {
+  let newGoal = prompt("Please enter the new number of goals:");
+  if (!isNaN(newGoal)) {
+      document.getElementById('goal' + team).innerText = parseInt(newGoal);
+  } else {
+      alert("Please enter new team name!");
   }
-};
-
+}
+function changeTeamName(team) {
+  let newName = prompt("Please enter new team name:");
+  if (newName !== null && newName.trim() !== "") {
+      document.getElementById('team' + team).innerHTML = newName + " <button onclick='changeTeamName(\"" + team + "\")'></button>";
+  }
+}
 
 let resetScores = () => {
-  teamAScore = 0;
-  teamBScore = 0;
-  teamAScoreValue.textContent = teamAScore;
-  teamBScoreValue.textContent = teamBScore;
-};
-
-
-
-function setScorePrompt(team){
-    let score = prompt ("Güncel gol sayınızı giriniz:");
-    if(!isNaN(score)){
-            document.getElementById('goal'+ team).innerText = parseInt (score);
-        } else {
-            alert("Geçerli bir sayı giriniz.")
-        }
-      }
-
-      function changeName(team){
-        let newName = prompt("Lütfen yeni takım ismi giriniz");
-        if (newName !== null && newName.trim() !=="") {
-          document.getElementById('team'+team).innerHTML=newName + "<button onclick='changeName(\"" + team + "\")'></button>"
-        }
-      }
+  goalA = 0;
+  goalB = 0;
+  goalAValue.textContent = goalA;
+  goalBValue.textContent = goalB;
+}
