@@ -35,16 +35,19 @@ let resetScores = () => {
 };
 
 
-function setScorePrompt(teamAScore){
-    const score = prompt ("Güncel gol sayınızı giriniz:")
-    if( score !== null && !isNaN(score)){
-        const scoreNum = parseInnt(score)
-        if(Number.isInteger(scoreNum)) {
-            document.getElementById('score${teamAScore}').textContent =scoreNum
+
+function setScorePrompt(team){
+    let score = prompt ("Güncel gol sayınızı giriniz:");
+    if(!isNaN(score)){
+            document.getElementById('goal'+ team).innerText = parseInt (score);
         } else {
             alert("Geçerli bir sayı giriniz.")
         }
-    } else {
-        alert("Score girilemedi.")
-    }
-}
+      }
+
+      function changeName(team){
+        let newName = prompt("Lütfen yeni takım ismi giriniz");
+        if (newName !== null && newName.trim() !=="") {
+          document.getElementById('team'+team).innerHTML=newName + "<button onclick='changeName(\"" + team + "\")'></button>"
+        }
+      }
