@@ -17,13 +17,13 @@
     <div class="col-6 boxscore">
         <h2 class="teamA" id="teamA">TEAM A</h2>
         <div class="button-1">
-        <button class="change" onclick="changeName('A')">Takım ismi giriniz</button>
+        <button class="change" onclick="changeTeamName('A')">Takım ismi giriniz</button>
     </div>
     </div>
     <div class="col-6 boxscore2">
       <h2 class="teamB" id="teamB"> TEAM B </h2> 
       <div class="button-2">
-      <button class="change" onclick="changeName('B')">Takım ismi giriniz</button>
+      <button class="change" onclick="changeTeamName('B')">Takım ismi giriniz</button>
     </div>
     </div>
    </div>
@@ -34,17 +34,17 @@
    <div class="container team py-5">
     <div class="row">
         <div class="col-6 team">
-            <div  class="leftteam" id="teamAScore"> <p >0</p></div>
-            <button class="plus-1"  onclick="incrementScore('teamA')"><span class="arti">+</span></button>
-            <button class="minus-1"  onclick="decrementScore('teamA')"><span class="eksi">-</span></button>
-            <button class="score-write" onclick="setScorePrompt('teamA')">Skor Ayarla</button>
+            <div  class="leftteam" > <p id="goalA">0</p></div>
+            <button class="plus-1"  onclick="increaseGoal('A')"><span class="arti">+</span></button>
+            <button class="minus-1"  onclick="decreaseGoal('A')"><span class="eksi">-</span></button>
+            <button class="score-write" onclick="setGoal('A')">Skor Ayarla</button>
         </div>
   
         <div class="col-6 team">
-            <div class="rightteam" ><p id="teamBScore">0</p></div>
-            <button class="plus-2"  onclick="incrementScore('teamB')"><span class="arti">+</span></button>
-            <button class="minus-2"  onclick="decrementScore('teamB')"><span class="eksi">-</span></button>
-            <button class="score-write-2" onclick="setScorePrompt('teamB')">Skor Ayarla</button>
+            <div class="rightteam" ><p id="goalB">0</p></div>
+            <button class="plus-2"  onclick="increaseGoal('B')"><span class="arti">+</span></button>
+            <button class="minus-2"  onclick="decreaseGoal('B')"><span class="eksi">-</span></button>
+            <button class="score-write-2" onclick="setGoal('B')">Skor Ayarla</button>
         </div>
     </div>
    </div>
