@@ -11,17 +11,17 @@ function decreaseGoal(team) {
 }
 
 function setGoal(team) {
-  let newGoal = prompt("Please enter the new number of goals:");
+  let newGoal = prompt("Yeni skoru giriniz:");
   if (!isNaN(newGoal)) {
       document.getElementById('goal' + team).innerText = parseInt(newGoal);
   } else {
-      alert("Please enter new team name!");
+      alert("Lütfen sayı giriniz!");
   }
 }
 function changeTeamName(team) {
   let newName = prompt("Please enter new team name:");
   if (newName !== null && newName.trim() !== "") {
-      document.getElementById('team' + team).innerHTML = newName + " <button onclick='changeTeamName(\"" + team + "\")'></button>";
+      document.getElementById('team' + team).innerHTML = newName + " <onclick='changeTeamName(\"" + team + "\")'></onclick>";
   }
 }
 
