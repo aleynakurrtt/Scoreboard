@@ -1,33 +1,65 @@
-function increaseGoal(team) {
-  let currentGoal = parseInt(document.getElementById('goal' + team).innerText);
-  document.getElementById('goal' + team).innerText = currentGoal + 1;
-}
+let teamAScore = 0;
+let teamBScore = 0;
 
-function decreaseGoal(team) {
-  let currentGoal = parseInt(document.getElementById('goal' + team).innerText);
-  if (currentGoal > 0) {
-      document.getElementById('goal' + team).innerText = currentGoal - 1;
-  }
-}
+let teamAScoreValue = document.getElementById("teamAScore");
+let teamBScoreValue = document.getElementById("teamBScore");
 
-function setGoal(team) {
-  let newGoal = prompt("Yeni skoru giriniz:");
-  if (!isNaN(newGoal)) {
-      document.getElementById('goal' + team).innerText = parseInt(newGoal);
-  } else {
-      alert("Lütfen sayı giriniz!");
+let incrementScore = (team) => {
+  if (team === "teamA") {
+    teamAScore++;
+    teamAScoreValue.textContent = teamAScore;
+  } else if (team === "teamB") {
+    teamBScore++;
+    teamBScoreValue.textContent = teamBScore;
   }
-}
-function changeTeamName(team) {
-  let newName = prompt("Please enter new team name:");
-  if (newName !== null && newName.trim() !== "") {
-      document.getElementById('team' + team).innerHTML = newName + " <onclick='changeTeamName(\"" + team + "\")'></onclick>";
+};
+
+let decrementScore = (team) => {
+  if (team === "teamA" && teamAScore > 0) {
+    teamAScore--;
+    teamAScoreValue.textContent = teamAScore;
+  } else if (team === "teamB" && teamBScore > 0) {
+    teamBScore--;
+    teamBScoreValue.textContent = teamBScore;
   }
-}
+};
 
 let resetScores = () => {
-  goalA = 0;
-  goalB = 0;
-  goalAValue.textContent = goalA;
-  goalBValue.textContent = goalB;
+  teamAScore = 0;
+  teamBScore = 0;
+  teamAScoreValue.textContent = teamAScore;
+  teamBScoreValue.textContent = teamBScore;
+};
+
+function setScorePrompt(team) {
+  let score = prompt(`Güncel ${team} skorunu giriniz:`);
+  if (score !== null && !isNaN(score)) {
+    score = parseInt(score);
+    if (!isNaN(score)) {
+      if (team === "teamA") {
+        teamAScore = score;
+        teamAScoreValue.textContent = teamAScore;
+      } else if (team === "teamB") {
+        teamBScore = score;
+        teamBScoreValue.textContent = teamBScore;
+      }
+    } else {
+      alert("Geçerli bir sayı giriniz.");
+    }
+  } else {
+    alert("Skor girilemedi veya iptal edildi.");
+  }
+}
+
+function changeTeamName(team) {
+  let newName = prompt(`Enter new name for ${team}:`);
+  if (newName !== null && newName.trim() !== "") {
+    if (team === "teamA") {
+      document.getElementById("teamAName").textContent = newName;
+    } else if (team === "teamB") {
+      document.getElementById("teamBName").textContent = newName;
+    }
+  } else {
+    alert("Invalid name. Please enter a valid team name.");
+  }
 }
